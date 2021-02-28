@@ -3,6 +3,7 @@ This is a text based adventure game for python project
 
 ### Modules used
 * random
+* time
 
 ### Links
 *  [Basic Modifications](https://guides.github.com/features/mastering-markdown/ "Basic Modifications")
