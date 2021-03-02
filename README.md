@@ -17,3 +17,5 @@ This is a text based adventure game for python project
       global var #Give this anywhere in that function before modifying the varaible
       var=23432 #Not giving global var will make var a local of that particular function
     ```
+### Note
+* Spelling of Kiera/Kiera
