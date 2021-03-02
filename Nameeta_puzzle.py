@@ -1,5 +1,49 @@
 import time
 
+life=3
+def check_life(a):
+    if a<=0:
+        #exit game
+        print('You lose')
+def ethan_level3_puz():
+    pa_l3=2
+    print('You reach Ethans home and introduce yourself as a detective for the NYPD. This triggers a suspicious reaction and you decide to look more into why Ethan looks so anxious')
+    print('You start questioning him and notice him holding back some inportant information or manipulating your questions')
+    print('Show Ethan that you cant be outwitted by answering these questions:')
+    time.sleep(1)
+    print('What is the capital of the USA?')
+    print('a)Los Angeles','b)New York','c)Florida','d)Wahington D.C',sep='\n')
+    ans=input()
+    if ans!='d':
+        pa_l3-=1
+    print('What is the currency used in Dubai')
+    print('a)Dirham','b)US Dollar','c)Rupees','d)Won',sep='\n')
+    ans=input()
+    if ans!='a':
+        pa_l3-=1
+    print('71% of the Earth is covered by?')
+    print('a)Lava','b)Water','c)Gold','d)Humans',sep='\n')
+    ans=input()
+    if ans!='b':
+        pa_l3-=1
+    print('In which season do we experience the most heat?')
+    print('a)summer','b)spring','c)winter','d)autumn',sep='\n')
+    ans=input()
+    if ans!='a':
+        pa_l3-=1
+    print('What is the capital of the Republic of Senegal?')
+    print('a)Dakha','b)Dakar','c)Delhi','d)Dallas',sep='\n')
+    ans=input()
+    if ans!='b':
+        pa_l3-=1
+    return pa_l3
+res=keira_level4_puz()
+if res>0:
+    print("Next level")
+else:
+    print("YOu lost a life")
+    life-=1
+check_life(life)
 
 def keira_level4_puz():
     pa_l4=3
@@ -33,8 +77,13 @@ def keira_level4_puz():
     return pa_l4
 
 res=keira_level4_puz()
-
-
+if res>0:
+    print("Next level")
+else:
+    print("YOu lost a life")
+    life-=1
+    
+check_life(life)
 
 #level 5
 def level5_puz():
@@ -47,14 +96,18 @@ def level5_puz():
     ans=input()
     if(ans!='a'):
         pa_l5=0
-    if pa_l4>0:
-        print("Next level")
-    else:
-        print("YOu lost a life")
+    return pa_l5
     
-level5_puz()
-
+res=level5_puz()
 if res>0:
     print("Next level")
 else:
     print("YOu lost a life")
+    life-=1
+    
+check_life(life)
+    
+    
+    
+    
+    
