@@ -1,16 +1,25 @@
 import random
 import time
 
-global char
+char=True
+var=1
 
 def move_on():
 	pass
 def game_over():
 	pass
 
+def intro():
+	print(format('Welcome to "Murder in New York"','^100'))
+	print("This is a text based adventure game consisting of several levels and challenges as the story progresses")
+	print("We hope you enjoy!")
+	time.sleep(5*var)
 #Level 1
 def level1():
-	var=0
+	global char
+	print('\n\n')
+	print(format("LEVEL 1",'^100'))
+	print('\n')
 	print("Alice is reading a book.")
 	time.sleep(0.7*var)
 	print("The weather outside is dark and gloomy.")
@@ -46,16 +55,19 @@ def level1():
 	else:
 		char=False
 
-level1()
+#level1()
 
 #Level 6
 def level6_puz():
+	print('\n\n')
+	print(format("LEVEL 6",'^100'))
+	print('\n')
 	pa_l6=1
 	print("Looks like you have forgot your math! Time to test your basic math knowlege!")
 	for i in range(3):
 		a = random.randint(-100, 100)
 		b = random.randint(-100, 100)
-		ans = 1
+		ans = 1 #ans=a+b
 #Changed to 1 for testing!
 		inp = int(input("What is the sum of {} and {}\n".format(a, b)))
 		if inp!=ans:
@@ -67,9 +79,6 @@ def level6_puz():
 	else:
 		print("Looks like you have passed this puzzle too!")
 		move_on()
-
-print("Level 6")
-#level6_puz()
 
 #Timed input
 def input_time():
@@ -89,6 +98,9 @@ def input_time():
 		return 0
 #Level 7
 def level7_puz():
+	print('\n\n')
+	print(format("LEVEL 7",'^100'))
+	print('\n')
 	pa_l7=1
 	print("Looks like you are getting late for you flight! Time to speed!")
 	for i in range(5):
@@ -111,5 +123,11 @@ def level7_puz():
 		print("Looks like you have passed this puzzle too!")
 		move_on()
 
-print("Level 7")
-#level7_puz()
+
+def main_game():
+	intro()
+	level1()
+	level6_puz()
+	level7_puz()
+
+main_game()
