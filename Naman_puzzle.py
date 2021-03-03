@@ -38,13 +38,13 @@ def level1():
 	time.sleep(0.7*var)
 	print("The weather outside is dark and gloomy.")
 	time.sleep(1.5*var)
-	print("It’s raining heavily and she is alone at home.")
+	print("It's raining heavily and she is alone at home.")
 	time.sleep(1.5*var)
 	print("She hears a thud on the door and gets out of bed to check if it was a stray cat in need of shelter from the harsh rain.")
 	time.sleep(6*var)
 	print("However, she finds herself across a shady person holding a gun.")
 	time.sleep(4.5*var)
-	print("The person opens fire on Alice before she could cry for help and she’s dead on the spot.")
+	print("The person opens fire on Alice before she could cry for help and she is dead on the spot.")
 	time.sleep(6*var)
 	print("Police investigation begins the next day and the case is assigned to you (Elyse/Kevin).")
 	time.sleep(5.25*var)
@@ -85,9 +85,11 @@ def level2_puz():
 			break
 	print(st1)
 	in1=input("The unscrambled word is:")
+	if in1=='ch':
+		return
 	print(st2)
 	in2=input("The unscrambled word is:")
-	if (in1!=str1 or in2!=str2) and (in1!="cheat" or in2!="cheat"):
+	if (in1!=str1 or in2!=str2) :
 		pa_l2=0
 
 	print("Now time to unscramble the clues related to Kiera")
@@ -106,7 +108,7 @@ def level2_puz():
 	in1=input("The unscrambled word is:")
 	print(st2)
 	in2=input("The unscrambled word is:")
-	if (in1!=str1 or in2!=str2) and (in1!="cheat" or in2!="cheat"):
+	if (in1!=str1 or in2!=str2) :
 		pa_l2=0
 	if pa_l2==0:
 		print("Oops, looks like your answer was wrong!")
@@ -161,17 +163,11 @@ def level6():
 
 #Timed input
 def input_time():
-	t=time.localtime()
-	ct1=int(time.strftime("%S", t))
+	ct1=time.time()
 	a=input()
-	t=time.localtime()
-	ct2=int(time.strftime("%S", t))
-	if ct1==59:
-		ct1=0
-		ct2+=1
-		if ct2==60:
-			ct2=0
-	if ct2-ct1<=2:
+	ct2=time.time()
+	print(ct2-ct1)
+	if ct2-ct1<=2.3:
 		return a
 	else:
 		return 0
