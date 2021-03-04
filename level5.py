@@ -21,13 +21,11 @@ def level5_():
     if (ans=='Y'):
         score=0
         print("What is the capital of Assam?\n A.Dibrugarh\n B.Dispur\n C.Imphal\n D.Itanagar")
+        start = time.time()             #the variable that holds the starting time        
         ans1=input()
-        start = time.time()     #the variable that holds the starting time
-        elapsed = 0             #the variable that holds the number of seconds elapsed.
-        while elapsed < 5:      #while less than 5 seconds have elapsed  
-            if (ans1=='B' or 'b'):
-              score+=1
-        elapsed = time.time() - start      
+        elapsed = time.time() - start   #the variable that holds the number of seconds elapsed.
+        if(elapsed<5 and ans1.lower()=='b'):
+            score+=1  
         print("Where is the headquarters of The Reserve Bank of India located?\n A.Bengaluru \n B.Mumbai \n C.Lucknow \n D.New Delhi")    
         ans2=input()
         start=time.time()
@@ -35,7 +33,7 @@ def level5_():
         while elapsed < 5:
             if (ans2=='B' or ans2=='b'):
                 score+=1
-        elapsed = time.time() - start
+                elapsed = time.time() - start
         print("Where is the headquarters of national crime records bureau located?\n A.New Delhi \n B.Chennai \n C.Indore \n D.Kochi")
         ans3=input()
         start=time.time()
@@ -43,11 +41,12 @@ def level5_():
         while elapsed < 5:
             if (ans2=='A' or ans2=='a'):
                  score+=1
-        if (score<=2):
+                 elapsed = time.time() - start
+        if (score>=2):
             print("Congratulations you have passed the test.")
         else:
             print("Sorry. You did not pass the test")
-        if (score<=2):
+        if (score>=2):
             print("Read the following text.\n “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore \n et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut \n aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse \n cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa \n qui officia deserunt mollit anim id est laborum.")
             time.sleep(2)
             print("Every alternate letter of the Fifth word of the fifth line from the bottom in the above text is your password.")
