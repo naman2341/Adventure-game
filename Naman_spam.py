@@ -1,62 +1,78 @@
 import time
+var=0
+def move_on():
+	pass
 
-life=1
-def check_life(a):
-    if a<=0:
-        #exit game
-        print('You lose')
 
-def level5_():
-    print ("Now you go again to investigate mother and father of the victim.They told that they were at a party, two blocks away from the place of murder.")
-    time.sleep(2)
-    print("They told you that the Mayor of the city was also there at the party.")
-    time.sleep(1)
-    print("While investigating, you find Mrs Janice Argot acting suspicious.")
-    time.sleep(1)
-    print("A good detective must be able to follow instructions without missing any important lead in the case.")
-    time.sleep(1)
-    print("To get an important clue for solving the case, we need to check your general knowledge and how fast you are.You will only get 5 seconds to answer the questions.")
-    print("Are you ready?\n Press Y for Yes,N for No")
-    ans=input()
-    if (ans=='Y'):
-        score=0
-        print("What is the capital of Assam?\n A.Dibrugarh\n B.Dispur\n C.Imphal\n D.Itanagar")
-        start = time.time()             #the variable that holds the starting time        
-        ans1=input()
-        elapsed = time.time() - start   #the variable that holds the number of seconds elapsed.
-        if(elapsed<5 and ans1.lower()=='b'):
-            score+=1  
-        print("Where is the headquarters of The Reserve Bank of India located?\n A.Bengaluru \n B.Mumbai \n C.Lucknow \n D.New Delhi")    
-        ans2=input()
-        start=time.time()
-        elapsed=0
-        while elapsed < 5:
-            if (ans2=='B' or ans2=='b'):
-                score+=1
-                elapsed = time.time() - start
-        print("Where is the headquarters of national crime records bureau located?\n A.New Delhi \n B.Chennai \n C.Indore \n D.Kochi")
-        ans3=input()
-        start=time.time()
-        elapsed=0
-        while elapsed < 5:
-            if (ans2=='A' or ans2=='a'):
-                 score+=1
-                 elapsed = time.time() - start
-        if (score>=2):
-            print("Congratulations you have passed the test.")
-        else:
-            print("Sorry. You did not pass the test")
-        if (score>=2):
-            print("Read the following text.\n “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore \n et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut \n aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse \n cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa \n qui officia deserunt mollit anim id est laborum.")
-            time.sleep(2)
-            print("Every alternate letter of the Fifth word of the fifth line from the bottom in the above text is your password.")
-            time.sleep(2)
-            print("Please enter the password")
-            pas=input()
-            if (ans=='ae'):
-                print(" You discuss with the Mayor and find out that Mrs Janice had left the party at around 11:00 and come back again at 12:00 to get some papers signed. You note it down.")
-            else:
-                print("Wrong Password")
-    else:
-        print("Wrong input")
-level5_()
+def level4_ethan_spuz():
+	pa_l4_e_spuz=1
+	print("Find Ethan’s diary and examine it to get the address of the drug lord and go to the mentioned.")
+	time.sleep(3*var)
+	print("You go with your own team to arrest them in the process however you go in alone since there doesn’t seem to be anyone at the address.")
+	time.sleep(5*var)
+	print("You come across many illegal intoxicants and record them during the investigation.")
+	time.sleep(2.5*var)
+	print("Unexpectedly a bulky man with strong facial features walks in and challenges you")
+	time.sleep(2.5*var)
+	print("The bulky man thinks that you cannot beat him in a duel")
+	time.sleep(2*var)
+	print("But little does he know that you are a trained martial-artist")
+	time.sleep(2*var)
+	print("The challenge is to press the ENTER key as fast as you can")
+	time.sleep(3*var)
+	print("READY?")
+	time.sleep(1*var)
+	print("3")
+	time.sleep(1*var)
+	print("2")
+	time.sleep(1*var)
+	print("1")
+	time.sleep(1*var)
+	print("GO!!!")
+	time.sleep(1*var)
+	t=time.localtime()
+	ct1=time.time()
+	ct2=ct1
+	d=ct2-ct1
+	wi=25
+	z=0
+	while d<=10.3:
+		ct3=time.time()
+		a=input()
+		if(a=='ch'):
+			z=wi
+			break
+		ct2=time.time()
+		d=ct2-ct1
+		e=ct2-ct3
+		if(e>=0.2):
+			z-=int(e*10)
+			#print(e)
+		if(e<0.18):
+			#print(e)
+			z+=1
+			if z>=wi:
+				break
+		print()
+		print('-'*25)
+		print("{:<{}}{}".format("#"*z,wi-1,"|"))
+		#print('\r')
+		print('-'*25,end='')
+		#print("*"*z,format("",">30"),end='')
+		#print()
+	if z>=wi:
+		print("\nYou WIN! and are able to extract information about the entire system of peddlers and send your team to deal with it while you go back to your teammate to continue on the Alice case.")
+		print("Congratulations!!!")
+		print("Sidequest successful")
+		move_on()
+	else:
+		print("\nOh no! Looks like you were not fast enough, the bulky man flees away by tricking you ")
+		move_on()
+
+def level4_ethan():
+	print('\n\n')
+	print(format("LEVEL 4 ETHAN",'^100'))
+	print('\n')
+	level4_ethan_spuz()
+
+level4_ethan()
