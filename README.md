@@ -19,3 +19,4 @@ This is a text based adventure game for python project
     ```
 ### Issues
 * Spelling of Kiera/Kiera
+* Spam protection for ```Level 5``` due to ```Level 4 ETHAN```
