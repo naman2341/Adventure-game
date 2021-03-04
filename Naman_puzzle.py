@@ -4,6 +4,7 @@ import time
 char=True
 var=0 #Changed to 0 for testing
 BOH=3
+game_start_time=time.time()
 
 def move_on():
 	pass
@@ -41,15 +42,15 @@ def level1():
 	print("It's raining heavily and she is alone at home.")
 	time.sleep(1.5*var)
 	print("She hears a thud on the door and gets out of bed to check if it was a stray cat in need of shelter from the harsh rain.")
-	time.sleep(6*var)
+	time.sleep(4*var)
 	print("However, she finds herself across a shady person holding a gun.")
-	time.sleep(4.5*var)
+	time.sleep(2*var)
 	print("The person opens fire on Alice before she could cry for help and she is dead on the spot.")
-	time.sleep(6*var)
+	time.sleep(3*var)
 	print("Police investigation begins the next day and the case is assigned to you (Elyse/Kevin).")
-	time.sleep(5.25*var)
+	time.sleep(3*var)
 	print("The player is filled in with the details and the gameplay begins.")
-	time.sleep(3.5*var)
+	time.sleep(2.5*var)
 	a=1
 	op=input("Are you ready to solve this case?\n")
 	op=op.lower()
@@ -132,7 +133,82 @@ def level2():
 		level2_puz()
 	else:
 		end_game()
-	
+
+#Level 4 Side Puzzle Ethan
+def level4_ethan_spuz():
+	pa_l4_e_spuz=1
+	print("Find Ethan’s diary and examine it to get the address of the drug lord and go to the mentioned.")
+	time.sleep(3*var)
+	print("You go with your own team to arrest them in the process however you go in alone since there doesn’t seem to be anyone at the address.")
+	time.sleep(5*var)
+	print("You come across many illegal intoxicants and record them during the investigation.")
+	time.sleep(2.5*var)
+	print("Unexpectedly a bulky man with strong facial features walks in and challenges you")
+	time.sleep(2.5*var)
+	print("The bulky man thinks that you cannot beat him in a duel")
+	time.sleep(2*var)
+	print("But little does he know that you are a trained martial-artist")
+	time.sleep(2*var)
+	print("The challenge is to press the ENTER key as fast as you can")
+	time.sleep(3*var)
+	print("READY?")
+	time.sleep(1*var)
+	print("3")
+	time.sleep(1*var)
+	print("2")
+	time.sleep(1*var)
+	print("1")
+	time.sleep(1*var)
+	print("GO!!!")
+	time.sleep(1*var)
+	t=time.localtime()
+	ct1=time.time()
+	ct2=ct1
+	d=ct2-ct1
+	wi=25
+	z=0
+	while d<=10.3:
+		ct3=time.time()
+		a=input()
+		if(a=='ch'):
+			z=wi
+			break
+		ct2=time.time()
+		d=ct2-ct1
+		e=ct2-ct3
+		if(e>=0.3):
+			z-=int(e*10)
+			#print(e)
+		if(e<0.2):
+			#print(e)
+			z+=1
+			if z>=wi:
+				break
+		print()
+		print('-'*25)
+		print("{:<{}}{}".format("#"*z,wi-1,"|"))
+		#print('\r')
+		print('-'*25,end='')
+		#print("*"*z,format("",">30"),end='')
+		#print()
+	if z>=wi:
+		print("\nYou WIN! and are able to extract information about the entire system of peddlers and send your team to deal with it while you go back to your teammate to continue on the Alice case.")
+		print("Congratulations!!!")
+		print("Sidequest successful")
+		time.sleep(4)
+		move_on()
+	else:
+		print("\nOh no! Looks like you were not fast enough, the bulky man flees away by tricking you ")
+		time.sleep(4)
+		move_on()
+
+#Level 4
+def level4_ethan():
+	print('\n\n')
+	print(format("LEVEL 4 ETHAN",'^100'))
+	print('\n')
+	level4_ethan_spuz()
+
 #Level 6 Puzzle
 def level6_puz():
 	pa_l6=1
@@ -142,7 +218,7 @@ def level6_puz():
 		b = random.randint(-100, 100)
 		ans = a+b
 		inp = int(input("What is the sum of {} and {}\n".format(a, b)))
-		if inp==-999: #Cheat answer is -999
+		if inp==-999: #Cheat answer is ch
 			break
 		if inp!=ans: 
 			print("Oops looks like your answer is wrong")
@@ -166,7 +242,6 @@ def input_time():
 	ct1=time.time()
 	a=input()
 	ct2=time.time()
-	print(ct2-ct1)
 	if ct2-ct1<=2.3:
 		return a
 	else:
@@ -211,7 +286,15 @@ def main_game():
 	intro()
 	level1()
 	level2()
+	level4_ethan()
 	level6()
 	level7()
-	
+	game_end_time=time.time()
+	t=game_end_time-game_start_time
+	t=int(t)
+	h=t//3600
+	m=(t%3600)//60
+	s=t%60
+	print("Congratulations! You beat the game in {} hours {} minutes and {} seconds!".format(h,m,s))
+
 main_game()
