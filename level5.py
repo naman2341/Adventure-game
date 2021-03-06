@@ -1,4 +1,7 @@
 import time
+var=0
+def move_on():
+	pass
 
 life=1
 def check_life(a):
@@ -30,22 +33,22 @@ def level5_():
         ans2=input()
         start=time.time()
         elapsed=0
-        while elapsed < 5:
-            if (ans2=='B' or ans2=='b'):
-                score+=1
-                elapsed = time.time() - start
+        if (ans2=='B' or ans2=='b'):
+            score+=1
+            elapsed = time.time() - start
         print("Where is the headquarters of national crime records bureau located?\n A.New Delhi \n B.Chennai \n C.Indore \n D.Kochi")
         ans3=input()
         start=time.time()
         elapsed=0
-        while elapsed < 5:
-            if (ans2=='A' or ans2=='a'):
-                 score+=1
-                 elapsed = time.time() - start
+        if (ans2=='A' or ans2=='a'):
+            score+=1
+            elapsed = time.time() - start
         if (score>=2):
             print("Congratulations you have passed the test.")
+            time.sleep(2)
         else:
             print("Sorry. You did not pass the test")
+            time.sleep(2)
         if (score>=2):
             print("Read the following text.\n “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore \n et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut \n aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse \n cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa \n qui officia deserunt mollit anim id est laborum.")
             time.sleep(2)
@@ -53,7 +56,7 @@ def level5_():
             time.sleep(2)
             print("Please enter the password")
             pas=input()
-            if (ans=='ae'):
+            if (pas=='ae'):
                 print(" You discuss with the Mayor and find out that Mrs Janice had left the party at around 11:00 and come back again at 12:00 to get some papers signed. You note it down.")
             else:
                 print("Wrong Password")
