@@ -142,7 +142,7 @@ def level3() :
     time.sleep(2*var)
     op=input('Who do you wish to approach?(Kiera/Ethan): ')
     print(format("LEVEL 3",'^100'))
-    if op=='ethan':
+    if op.lower()=='ethan':
         choice=True
         print('You get ready to investigate Ethan while',char_name(char),'parts ways to investigate Kiera')
         level3_ethan()
@@ -220,12 +220,12 @@ def examine1():
             print('Nothing suspicious here')
 
 def examine2():
-    ch3=='x'
+    ch3='x'
     print("You observe Ethan's desk and can tell that he isnt the brightest bulb in the room based on him unused academic books")
     print('But there is one book which seemed like it was often reffered to and sure enough it had what you were looking for!')
     while(ch3!='a'):
         print('You find three highlighted addresses. Which of these could be the headquarters of drug traficking bussiness?','a)Abandoned horror movie set','b)Downtown NewYork',"c)Ethan's house",sep='\n')
-        ch2=input('Enter (a/b/c) to examine: ')
+        ch3=input('Enter (a/b/c) to examine: ')
         if ch3=='a':
             print('An abandoned horror movie set would be perfect to stay hidden especially when it is in a poor locality!!')
             print('You copy down the address and start to it with your team')
@@ -242,7 +242,7 @@ def level4_ethan1():
     print('You enter the house and there are three rooms ahead of you.')
     ch1='x'
     while(ch1!='b'):
-        print('Would you like to examine','a)The kitchem','b)Ethans room','c)Head upstairs', sep='\n')
+        print('Would you like to examine','a)The kitchen','b)Ethans room','c)Head upstairs', sep='\n')
         ch1=input('Enter (a/b/c)')
         ch1=ch1.lower()
         if ch1=='b':
@@ -281,34 +281,32 @@ def level4_ethan2():
     wi=25
     z=0
     while d<=10.3:
-    	ct3=time.time()
-    	a=input()
-    	ct2=time.time()
-    	d=ct2-ct1
-    	e=ct2-ct3
-    	if(e>=0.2):
-            z-=int(e*10)
-            #print(e)
+        ct3=time.time()
+        a=input()
+        ct2=time.time()
+        d=ct2-ct1
+        e=ct2-ct3
+        if(e>=0.2):
+            z-=int(e*8)
+        if(z<0):
+            z=1
         if(e<0.18):
             z+=1
             if z>=wi:
                 break
         print()
-	print('-'*25)
-	print("{:<{}}{}".format("#"*z,wi-1,"|"))
-	#print('\r')
-	print('-'*25,end='')
-	#print("*"*z,format("",">30"),end='')
-	#print()
+        print('-'*25)
+        print("{:<{}}{}".format("#"*z,wi-1,"|"))
+        print('-'*25,end='')
     if z>=wi:
-	print("\nYou WIN! and are able to extract information about the entire system of peddlers and send your team to deal with it while you go back to your teammate to continue on the Alice case.")
-	print("Congratulations!!!")
-	print("Sidequest successful")
-	move_on(pa_l4)
+        print("\nYou WIN! and are able to extract information about the entire system of peddlers and send your team to deal with it while you go back to your teammate to continue on the Alice case.")
+        print("Congratulations!!!")
+        print("Sidequest successful")
+        move_on(pa_l4)
     else:
-	print("\nOh no! Looks like you were not fast enough, the bulky man flees away by tricking you ")
-	print('You return back to', char_name(ch),'with a heavy heart')
-	move_on(0)
+        print("\nOh no! Looks like you were not fast enough, the bulky man flees away by tricking you ")
+        print('You return back to', char_name(ch),'with a heavy heart')
+        move_on(0)
 
 def move(f):
     if f>0 and f<=(1/3):
@@ -367,10 +365,7 @@ def level3_kiera():
 
 def level4_kiera():
     pass
-
 intro()
 level1()
 level2()
 level3()
-
-
