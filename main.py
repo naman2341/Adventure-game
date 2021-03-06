@@ -251,6 +251,7 @@ def level4_ethan1():
             print('There doesnt seem to be anything interesting here')
         
 def level4_ethan2():
+    global char
     pa_l4=1
     print("You go with your own team to arrest them in the process however you go in alone since there doesn’t seem to be anyone at the address.")
     time.sleep(5*var)
@@ -262,7 +263,7 @@ def level4_ethan2():
     time.sleep(2*var)
     print("But little does he know that you are a trained martial-artist")
     time.sleep(2*var)
-    print("The challenge is to press the ENTER key as fast as you can")
+    print("The challenge is to press the ENTER key as fast as you can. The # shows the number of succesful hits")
     time.sleep(3*var)
     print("READY?")
     time.sleep(1*var)
@@ -303,10 +304,14 @@ def level4_ethan2():
         print("Congratulations!!!")
         print("Sidequest successful")
         move_on(pa_l4)
+        print('You rush back to',char_name(char),'and discuss what you accomplished.')
+        print(char_name(char),'and you share notes and decide to head back to the Argot mansion for further investigation')
     else:
         print("\nOh no! Looks like you were not fast enough, the bulky man flees away by tricking you ")
-        print('You return back to', char_name(ch),'with a heavy heart')
+        print('You return back to', char_name(char),'with a heavy heart')
         move_on(0)
+        print('However, ',char_name(char),'has good news and developments in the Alice case.')
+        print('The two of you discuss the happenings and decide to head back to the Argot mansion')
 
 def move(f):
     if f>0 and f<=(1/3):
@@ -364,8 +369,186 @@ def level3_kiera():
     move_on(pa_l3)
 
 def level4_kiera():
-    pass
-intro()
-level1()
-level2()
-level3()
+    pa_l4=3
+    print("You finish talking with and Kiera and you are alerted about the forensic reports on Alice's body")
+    print("Answer these questions to infer useful data from the forensics")
+    time.sleep(1)
+    print("Which of the injuries could have been caused by using the baseball bat?")
+    print("a)Stab wound in the abdomen","b)Entry wound on the arm",'c)Contusion and fracture of head','d)Incised wound on the thigh',sep='\n')
+    ans=input('Enter the correct option (a/b/c/d): ')
+    ans=ans.lower()
+    if ans!='c':
+        pa_l4-=1
+        print('The correct answer is c)Contusion and fracture of head since the others tear the skin which isnt possible with a blunt object')
+    else:
+        print('Correct Answer!!')
+    print("What part of the body do investigators commonly swab to get a DNA sample?")
+    print('a)The cheek','b)The scalp','c)The inner ear','d)The wrist',sep='\n')
+    ans=input('Enter the correct option (a/b/c/d): ')
+    ans=ans.lower()
+    if ans!='a':
+        pa_l4-=1
+        print('The correct answer is a)The cheek because buccal cells in the cheek provide a readily available, noninvasive source of DNA')
+    else:
+        print('Correct Answer!!')
+    print('When a suspect is not available in person, what might be tested for DNA instead?')
+    print('a)Their pen or pencil','b)The milk carton in the fridge','c)A household surface','d)Their toothbrush',sep='\n')
+    ans=input('Enter the correct option (a/b/c/d): ')
+    ans=ans.lower()
+    if ans!='d':
+        pa_l4-=1
+        print('The correct answer is d)Their toothbrush since this couldve come in contact with buccal cells in the cheek')
+    else:
+        print('Correct Answer!!')
+    print('A test result that is not certain enough to be useful to an investigation is called _______.')
+    print('a)Unfortunate','b)Valid','c)Invalid','d)Inconclusive',sep='\n')
+    ans=input('Enter the correct option (a/b/c/d): ')
+    ans=ans.lower()
+    if ans!='d':
+        pa_l4-=1
+        print('The correct answer is d)Inconclusive')
+    else:
+        print('Correct Answer!!')
+    print('Hercule Poirot states on many occasions that in order to deduce the identity of a murderer one must use their______.')
+    time.sleep(var*1)
+    print('a)grey matter','b)skilllz','c)little grey cells','d)heart strings',sep='\n')
+    ans=input('Enter the correct option (a/b/c/d): ')
+    ans=ans.lower()
+    if ans!='c':
+        pa_l4-=1
+        print('The correct answer is c)little grey cells from Agatha Chritie novels')
+    else:
+        print('Correct Answer!!')
+    move_on(pa_l4)
+    if(pa_l4<=0):
+        print('You failed to answer correctly however your team takes over for you and you are able to acquire the results')
+    print("The lab results show that the murder weapon was a stolen one and hence the killer couldn't be traced")
+    print('However you also have been told that the murder happened aorund 11:30 PM to 12:00 midnight ')
+    print('While you were out investigating Kiera,',char_name(char),'brings back info on Ethan with a triumphant drug case win!')
+    print('The two of you share notes and head back to the Argot mansion to find out more about where the other members of the family were')
+    
+
+def level5():
+    pa_l5=1
+    print("You return to the Argot mansion and together with Mr and Mrs Argot decide to visit the mayor since the parents were at a party in the mayo's house")
+    print("The mayor says he wont reveal facts unless he knows your potential")
+    print('Prove your expert sleuth skill through this minigame')
+    print("Are you ready to search nooks and corners for the best clue to solve the case?!!")
+    print("Read the below paragraph")
+    print('The “locked-room” mystery: This is a type of detective story in which a murder is committed under impossible conditions.')
+    time.sleep(var*1)
+    print('Usually in a place that the murderer couldn’t have entered or left.')
+    time.sleep(var*1)
+    print(' Although he isn’t given enough credit for it, Doyle was one of the earliest innovators of this classic subgenre of crime fiction.')
+    time.sleep(var*1)
+    print('Examples of this type include “The Speckled Band,” “The Empty House,” and The Valley of Fear.')
+    time.sleep(var*1)
+    ans=int(input("Enter the number of times 'the' is repeated: "))
+    if(ans!=6):
+        pa_l5=0
+    move_on(pa_l5)
+    print("The mayor trusts you and realises theres no reason to hold back important information from you")
+    print('"Mrs Argot left the part at 11:00 stating she had to bring some papers" he said sinisterly')
+    print('"She had returned with a change in clothes which I felt was weird" he said and he definitely sounded like he was onto something')
+    print('"I decided to check what these important papers were and," he said while pulling out some papers"I think you should go through them"')
+    print('Your team along with the mayor set to work')
+    
+#Level 6 Puzzle
+def level6_puz():
+    pa_l6=1
+    print("But, it requires math skills! Time to test your basic math knowlege!")
+    for i in range(3):
+        a = random.randint(-100, 100)
+        b = random.randint(-100, 100)
+        ans = a+b
+        inp = int(input("What is the sum of {} and {}\n".format(a, b)))
+        if inp==-999: #Cheat answer is ch
+            break
+        if inp!=ans: 
+            print("Oops looks like your answer is wrong")
+            pa_l6=0
+            break
+    move_on(pa_l6)
+    if pa_l6==0:
+        print('You couldnt help your team with this task... hope you do better next time')
+    print("Your team is able to discover that there was a 10 million error in Mr Alan Argot's bank account!!")
+    print("The money seemed to have been tranfereed to a 'Capyper Island' to escape from the hands of the law")
+    print("This error seemed to fit with the papers the mayor had slipped out of Mrs Argot's hands but it is too soon to conclude")
+    print("This placed major suspicion on Mrs.Janice Argot and you set out to arrest her")
+
+#Level 6
+def level6():
+    print('\n\n')
+    print(format("LEVEL 6",'^100'))
+    print('\n')
+    print('There seems to be a surprising discovery around the corener!!!')
+    level6_puz()
+
+#Timed input
+def input_time():
+    ct1=time.time()
+    a=input()
+    ct2=time.time()
+    if ct2-ct1<=2.3:
+        return a
+    else:
+        return 0
+
+#Level 7 Puzzle
+def level7_puz():
+    pa_l7=1
+    print("You need to reach befor Janice to arrest her. She has a headstart!!")
+    print("Time to speed up based on if you are fast enough")
+    time.sleep(3)
+    for i in range(5):
+        print("Enter the following character within 2 seconds")
+        time.sleep(2)
+        ch=random.choice("abcdefghijklmnopqrstuvwxyz")
+        print(ch)
+        a=input_time()
+        if 'ch' == a: #Cheat answer is ch
+            break
+        if a==0:
+            print("Oops looks like you were too slow!")
+            pa_l7=0
+            break
+        elif a!=ch:
+            print("Oops looks like you enter a wrong character")
+            pa_l7=0
+            break
+    move_on(pa_l7)
+    if pa_l7:
+        print("You couldnt be of help to your team")
+    print('You are able to reach before time and catch up to Mrs.Argot!!')
+    print("Janice confesses about the murder and explained that she was motivated by jealousy and had married Mr Alan only for his wealth.")
+    print("Meanwhile, the money transfers are tracked and another crime of Janice comes to surface.")
+    print("Turns out the mayor's hunch was right as the one on the receiving end of the 10 million was none other than Janice’s ex-husband.")
+
+#Level 7
+def level7():
+    print('\n\n')
+    print(format("LEVEL 7",'^100'))
+    print('\n')
+    print("You try to locate MrsArgot")
+    print("However, she has fled to the airport ready to catch a flight and escape!")
+    level7_puz()
+
+#Main function calling other functions
+def main_game():
+    intro()
+    level1()
+    level2()
+    level3()
+    level5()
+    level6()
+    level7()
+    game_end_time=time.time()
+    t=game_end_time-game_start_time
+    t=int(t)
+    h=t//3600
+    m=(t%3600)//60
+    s=t%60
+    print("Congratulations! You beat the game in {} hours {} minutes and {} seconds!".format(h,m,s))
+
+    
+main_game()
