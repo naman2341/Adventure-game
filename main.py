@@ -11,12 +11,19 @@ def move_on(pa):
     global BOH
     if pa<=0:
         BOH-=1
-        print('You lost a badge and you currently have ',BOH,' badges')
+        if(BOH==1):
+            print('You lost a badge and you currently have ',BOH,' badge')
+        else:
+            print('You lost a badge and you currently have ',BOH,' badges')
     else:
-        print('Good Job! You passed the level and have',BOH,'badges')
+        if(BOH==1):
+            print('Good Job! You passed the level and have',BOH,'badge')
+        else:
+            print('Good Job! You passed the level and have',BOH,'badges')
     if BOH<=0:
         print("Oh no! Now you have lost all of your Badge of Honours")
         print("You cannot be allowed to continue this investigation further!")
+        print("Thank you for your service detective")
         exit()
     
 def end_game():
@@ -141,7 +148,9 @@ def level3() :
     print('Now that you have information on the two, your team decides to split up')
     time.sleep(2*var)
     op=input('Who do you wish to approach?(Kiera/Ethan): ')
+    print('\n\n')
     print(format("LEVEL 3",'^100'))
+    print('\n')
     if op.lower()=='ethan':
         choice=True
         print('You get ready to investigate Ethan while',char_name(char),'parts ways to investigate Kiera')
@@ -162,51 +171,55 @@ def level3_ethan():
     time.sleep(2*var)
     print('You start questioning him and notice him holding back some important information and giving vague answers.')
     time.sleep(2*var)
-    print('Show Ethan that you cant be outwitted by answering these questions:')
+    print('Show Ethan that you cant be outwitted by answering these questions:\n\n')
     time.sleep(2*var)
     print('What is the capital of the USA?')
     print('a)Los Angeles','b)New York','c)Florida','d)Wahington D.C',sep='\n')
-    ans=input('Enter the correct option (a/b/c/d): ')
+    ans=input('\nEnter the correct option (a/b/c/d): ')
     if ans!='d':
         pa_l3-=1
         print('The correct answer is d)Wahington D.C')
     else:
         print('Correct Answer!!')
-    print('What is the currency used in Dubai')
+    print('\nWhat is the currency used in Dubai')
     print('a)Dirham','b)US Dollar','c)Rupees','d)Won',sep='\n')
-    ans=input('Enter the correct option (a/b/c/d): ')
+    ans=input('\nEnter the correct option (a/b/c/d): ')
     if ans!='a':
         pa_l3-=1
         print('The correct answer is a)Dirham')
     else:
         print('Correct Answer!!')
-    print('71% of the Earth is covered by?')
+    print('\n71% of the Earth is covered by?')
     print('a)Lava','b)Water','c)Gold','d)Humans',sep='\n')
-    ans=input('Enter the correct option (a/b/c/d): ')
+    ans=input('\nEnter the correct option (a/b/c/d): ')
     if ans!='b':
         pa_l3-=1
         print('The correct answer is b)Water')
     else:
         print('Correct Answer!!')
-    print('In which season do we experience the most heat?')
+    print('\nIn which season do we experience the most heat?')
     print('a)summer','b)spring','c)winter','d)autumn',sep='\n')
-    ans=input('Enter the correct option (a/b/c/d): ')
+    ans=input('\nEnter the correct option (a/b/c/d): ')
     if ans!='a':
         pa_l3-=1
         print('The correct answer is a)summer')
     else:
         print('Correct Answer!!')
-    print('What is the capital of the Republic of Senegal?')
+    print('\nWhat is the capital of the Republic of Senegal?')
     print('a)Dakha','b)Dakar','c)Delhi','d)Dallas',sep='\n')
-    ans=input('Enter the correct option (a/b/c/d): ')
+    ans=input('\nEnter the correct option (a/b/c/d): ')
     if ans!='b':
         pa_l3-=1
         print('The correct answer is b)Dakar')
     else:
         print('Correct Answer!!')
-    print('In return for the questions you answered... you got to question Ethan.')
+    time.sleep(3*var)
+    print('\nIn return for the questions you answered... you got to question Ethan.')
+    time.sleep(2*var)
     print('He unknowingly exposes himself as a drug dealer.')
+    time.sleep(1*var)
     print('You are ready to catch the source however, he faints and is sent to the hospital, requiring immediate attention')
+    time.sleep(1*var)
     move_on(pa_l3)
 
 def examine1():
