@@ -372,8 +372,7 @@ def level3_kiera():
     score=shoot(m3,move(opp3))
     if score==0:
         print('You lost all three matches but Kiera had fun')
-        s=r('"Alice used to lose against me all the time too!! ", she says with a soft painful giggle.')
-        print(s)
+        print('"Alice used to lose against me all the time too!! ", she says with a soft painful giggle.')
     print('After the small game you notice Kiera has calmed down and she starts to talk about Alice')
     print('She is determined to help you solve the case.')
     print('You find out that there was a slight change in the behaviour of cheerful Alice the past week or so')
@@ -549,6 +548,7 @@ def level7():
 #Main function calling other functions
 def main_game():
     intro()
+    game_start_time=time.time()
     level1()
     level2()
     level3()
