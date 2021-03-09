@@ -7,6 +7,18 @@ BOH=3
 choice=True
 score=0
 
+def diff(a):
+    global BOH
+    if(a==1):
+        BOH=1
+        return "Hard"
+    elif(a==3):
+        BOH=7
+        return "Easy"
+    else:
+        BOH=3
+        return "Medium"
+
 def move_on(pa):
     global BOH
     if pa<=0:
@@ -34,6 +46,9 @@ def end_game():
 def intro():
     print(format('Welcome to "Murder in New York"','^100'))
     print("This is a text based adventure game consisting of several levels and challenges as the story progresses")
+    a=int(input("Please choose your difficulty level\n1.Hard\n2.Medium\n3.Easy\n"))
+    s=diff(a)
+    print("Difficulty {} chosen.".format(s))
     print("We hope you enjoy!")
     time.sleep(3*var)
 
@@ -94,7 +109,6 @@ def level2_puz():
     print("That is great! Lets start with Ethan")
     #boyfriend,suspicious-Ethan
     #bestfriend,friendly-Kiera
-    #Words might have to be changed probabily
     print("Looks like Alice loved writing about her friends in her diary , but looks like its scrambelled!")
     print("Start by unscrambling these clues related to Ethan")
     while 1:
@@ -251,6 +265,9 @@ def examine2():
         
 
 def level4_ethan1():
+    print('\n\n')
+    print(format("LEVEL 4",'^100'))
+    print('\n')
     print('Put on your detective hat and get ready to examine the house')
     print('You enter the house and there are three rooms ahead of you.')
     ch1='x'
@@ -382,6 +399,9 @@ def level3_kiera():
 
 def level4_kiera():
     pa_l4=3
+    print('\n\n')
+    print(format("LEVEL ",'^100'))
+    print('\n')
     print("You finish talking with and Kiera and you are alerted about the forensic reports on Alice's body")
     print("Answer these questions to infer useful data from the forensics")
     time.sleep(1)
@@ -435,50 +455,110 @@ def level4_kiera():
     if(pa_l4<=0):
         print('You failed to answer correctly however your team takes over for you and you are able to acquire the results')
     print("The lab results show that the murder weapon was a stolen one and hence the killer couldn't be traced")
-    print('However you also have been told that the murder happened aorund 11:30 PM to 12:00 midnight ')
+    print('However you also have been told that the murder happened around 11:30 PM to 12:00 midnight ')
     print('While you were out investigating Kiera,',char_name(char),'brings back info on Ethan with a triumphant drug case win!')
     print('The two of you share notes and head back to the Argot mansion to find out more about where the other members of the family were')
     
-
+#Level 5
 def level5():
-    pa_l5=1
-    print("You return to the Argot mansion and together with Mr and Mrs Argot decide to visit the mayor since the parents were at a party in the mayo's house")
+    pa_l5=2
+    print('\n\n')
+    print(format("LEVEL 5",'^100'))
+    print('\n')
+    print("You return to the Argot mansion and together with Mr and Mrs Argot decide to visit the mayor since the parents were at a party in the mayor's house")
+    time.sleep(var*1)
     print("The mayor says he wont reveal facts unless he knows your potential")
+    time.sleep(var*0.5)
     print('Prove your expert sleuth skill through this minigame')
+    time.sleep(var*0.25)
     print("Are you ready to search nooks and corners for the best clue to solve the case?!!")
+    time.sleep(var*1)
     print("Read the below paragraph")
-    print('The “locked-room” mystery: This is a type of detective story in which a murder is committed under impossible conditions.')
+    print('"The “locked-room” mystery: This is a type of detective story in which a murder is committed under impossible conditions.')
     time.sleep(var*1)
     print('Usually in a place that the murderer couldn’t have entered or left.')
     time.sleep(var*1)
     print(' Although he isn’t given enough credit for it, Doyle was one of the earliest innovators of this classic subgenre of crime fiction.')
     time.sleep(var*1)
-    print('Examples of this type include “The Speckled Band,” “The Empty House,” and The Valley of Fear.')
+    print('Examples of this type include “The Speckled Band,” “The Empty House,” and The Valley of Fear."')
     time.sleep(var*1)
-    ans=int(input("Enter the number of times 'the' is repeated: "))
+    print('')
+    while 1:
+        ans=input("Enter the number of times 'the' is repeated in the above paragraph: ")
+        if(ans.isdigit()):
+            ans=int(ans)
+            break
+        print("Please enter a valid input")
     if(ans!=6):
-        pa_l5=0
+        pa_l5-=1
+        print("You answered wrong :(. The correct answer is 6")
+    else:
+        print("That was spot on!!")
+    print('\n\n')
+    print("Read the below paragraph")
+    print("A lavish trip through Europe quickly unfolds into a race againt time to solve a murder aboard a train.")
+    time.sleep(var*1)
+    print("Everyone's a suspect when Detective Hercule Poirot arrives to interrogate all passengers and search for clues before the killer can strike again.")
+    time.sleep(var*2)
+    ans=input("Enter the word to the right of the word which consists the letters 'v' and 't': ")
+    print('')
+    ans=ans.lower()
+    if(ans!='hercule'):
+        pa_l5-=1
+        print("You answered wrong :(. The correct answer is 'Hercule'")
+    else:
+        print("That was spot on!!")
+    print('\n\n')
+    print('Read the below paragraph: ')
+    print("In the dead of a hot summer's night, Detective Erika Foster is called to a murder scene.")
+    time.sleep(var*1)
+    print("The victim, a doctor, is found suffocated in bed. His wrists are bound and his eyes bulging through a clear plastic bag")
+    time.sleep(var*1)
+    print("A few days later, another victim is foung dead, in exactly the same curcumstances.")
+    time.sleep(var*1)
+    print("As Erika and her team start digging deeper, they discover a calculated serial killer- stalking their victims before striking")
+    time.sleep(var*1)
+    print("As a heat wave descends upon London, Erika will do everuthing to stop the Night Stalker before the body count rises. ")
+    time.sleep(var*1)
+    print("But the victims might not be the only ones being watched... Erika's own life could be on the line")
+    print('')
+    print("The final key to the mayor's trust: Find the antonym of 'lost' from the extract and enter every alternate letter of the word.")
+    ans=input("Enter answer: ")
+    ans=ans.lower()
+    if(ans!='fud' and ans!='on'):
+        pa_l5-=1
+        print("You answered wrong :(. The correct answer is 'on' or 'fud'")
+    else:
+        print("That was spot on!!")
     move_on(pa_l5)
     print("The mayor trusts you and realises theres no reason to hold back important information from you")
+    time.sleep(var*1)
     print('"Mrs Argot left the part at 11:00 stating she had to bring some papers" he said sinisterly')
+    time.sleep(var*1)
     print('"She had returned with a change in clothes which I felt was weird" he said and he definitely sounded like he was onto something')
+    time.sleep(var*1)
     print('"I decided to check what these important papers were and," he said while pulling out some papers"I think you should go through them"')
+    time.sleep(var*1)
     print('Your team along with the mayor set to work')
-    
+
 #Level 6 Puzzle
 def level6_puz():
-    pa_l6=1
+    pa_l6=2
     print("But, it requires math skills! Time to test your basic math knowlege!")
     for i in range(3):
         a = random.randint(-100, 100)
         b = random.randint(-100, 100)
         ans = a+b
-        inp = int(input("What is the sum of {} and {}\n".format(a, b)))
-        if inp==-999: #Cheat answer is ch
+        inp = int(input("\nWhat is the sum of {} and {}\n".format(a, b)))
+        if inp==-999: #Cheat answer is -999
             break
         if inp!=ans: 
             print("Oops looks like your answer is wrong")
-            pa_l6=0
+            print("The correct answer was",ans)
+            pa_l6-=1
+        else:
+            print("Your answer was correct!")
+        if(pa_l6==0):
             break
     move_on(pa_l6)
     if pa_l6==0:
@@ -512,7 +592,7 @@ def level7_puz():
     print("You need to reach befor Janice to arrest her. She has a headstart!!")
     print("Time to speed up based on if you are fast enough")
     time.sleep(3)
-    for i in range(5):
+    for i in range(3):
         print("Enter the following character within 2 seconds")
         time.sleep(2)
         ch=random.choice("abcdefghijklmnopqrstuvwxyz")
@@ -528,6 +608,8 @@ def level7_puz():
             print("Oops looks like you enter a wrong character")
             pa_l7=0
             break
+        else:
+            print("\nYou typed it successfully in time!\n")
     move_on(pa_l7)
     if pa_l7:
         print("You couldnt be of help to your team")
