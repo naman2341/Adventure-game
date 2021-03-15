@@ -2,7 +2,7 @@ import random
 import time
 
 char=True
-var=0 #Changed to 0 for testing
+var=0.8 #Change to 0 for testing
 BOH=3
 choice=True
 score=0
@@ -13,7 +13,7 @@ def diff(a):
         BOH=1
         return "Hard"
     elif(a==3):
-        BOH=7
+        BOH=5
         return "Easy"
     else:
         BOH=3
@@ -24,23 +24,23 @@ def move_on(pa):
     if pa<=0:
         BOH-=1
         if(BOH==1):
-            print('You lost a badge and you currently have ',BOH,' badge')
+            print('\nYou lost a badge and you currently have ',BOH,' badge')
         else:
-            print('You lost a badge and you currently have ',BOH,' badges')
+            print('\nYou lost a badge and you currently have ',BOH,' badges')
     else:
         if(BOH==1):
-            print('Good Job! You passed the level and have',BOH,'badge')
+            print('\nGood Job! You passed the level and have',BOH,'badge')
         else:
-            print('Good Job! You passed the level and have',BOH,'badges')
+            print('\nGood Job! You passed the level and have',BOH,'badges')
     if BOH<=0:
-        print("Oh no! Now you have lost all of your Badge of Honours")
+        print("\nOh no! Now you have lost all of your Badge of Honours")
         print("You cannot be allowed to continue this investigation further!")
         print("Thank you for your service detective")
         exit()
     
 def end_game():
-    print("Oh looks like you did not want to continue further")
-    print("Thank you for playing")
+    print("\nOh looks like you did not want to continue further\n\n\n")
+    print(format("Thank you for playing",'^100'))
     exit()
 
 def intro():
@@ -53,6 +53,7 @@ def intro():
     time.sleep(3*var)
 
 def level1():
+    time.sleep(var*3)
     global char
     print('\n\n')
     print(format("LEVEL 1",'^100'))
@@ -90,6 +91,7 @@ def char_name(ch):
         return 'Elyse'
 
 def level2():
+    time.sleep(var*3)
     print('\n\n')
     print(format("LEVEL 2",'^100'))
     print('\n')
@@ -110,7 +112,8 @@ def level2_puz():
     #boyfriend,suspicious-Ethan
     #bestfriend,friendly-Kiera
     print("Looks like Alice loved writing about her friends in her diary , but looks like its scrambelled!")
-    print("Start by unscrambling these clues related to Ethan")
+    time.sleep(1*var)
+    print("Start by unscrambling these clues related to Ethan\n")
     while 1:
     	str1="boyfriend"
     	str2="suspicious"
@@ -127,12 +130,16 @@ def level2_puz():
     if (in1!=str1) :
         print('The correct answer is: ',str1)
         pa_l2=0
-    print('Personality of Ethan:',st2)
+    else:
+        print("You got it right!")
+    print('\nPersonality of Ethan:',st2)
     in2=input("Enter the unscrambled word: ")
     if(in2!=str2):
         print('The correct answer is: ',str2)
         pa_l2=0
-    print("Now time to unscramble the clues related to Kiera")
+    else:
+        print("You got it right!")
+    print("\nNow time to unscramble the clues related to Kiera\n")
     while 1:
     	str1="bestfriend"
     	str2="friendly"
@@ -149,16 +156,25 @@ def level2_puz():
     if (in1!=str1) :
         print('The correct answer is: ',str1)
         pa_l2=0
-    print('Personality of Kiera:',st2)
+    else:
+        print("You got it right!")
+    print('\nPersonality of Kiera:',st2)
     in2=input("Enter the unscrambled word: ")
     if (in2!=str2):
         print('The correct answer is: ',str2)
         pa_l2=0
+    else:
+        print("You got it right!")
     move_on(pa_l2)
 
 def level3() :
     
     global choice
+    time.sleep(var*3)
+    op=input("Are you ready to know more about this case?(Y/N)\n")
+    op=op.lower()
+    if op!='y' and op!='yes':
+        end_game()
     print('Now that you have information on the two, your team decides to split up')
     time.sleep(2*var)
     op=input('Who do you wish to approach?(Kiera/Ethan): ')
@@ -265,6 +281,11 @@ def examine2():
         
 
 def level4_ethan1():
+    time.sleep(var*3)
+    op=input("Do you want to continue investigating this case?(Y/N)\n")
+    op=op.lower()
+    if op!='y' and op!='yes':
+        end_game()
     print('\n\n')
     print(format("LEVEL 4",'^100'))
     print('\n')
@@ -331,6 +352,7 @@ def level4_ethan2():
         print('-'*25,end='')
     if z>=wi:
         print("\nYou WIN! and are able to extract information about the entire system of peddlers and send your team to deal with it while you go back to your teammate to continue on the Alice case.")
+        time.sleep(1*var)
         print("Congratulations!!!")
         print("Sidequest successful")
         move_on(pa_l4)
@@ -374,9 +396,13 @@ def level3_kiera():
     
     pa_l3=1
     print('You reach Kieras house and introduce yourself as a detective from the NYPD')
+    time.sleep(1*var)
     print('She seems a little bit scared and intimidated')
-    print('Play play a series of rock paper scissors matches to make her feel comfortable')
+    time.sleep(1*var)
+    print('Play a series of rock paper scissors matches to make her feel comfortable')
+    time.sleep(1*var)
     print('Bonus!! You get to move to the next level even if you lose the match, because either way your goal is to make Kiera happy')
+    time.sleep(1*var)
     print('Enter rock/paper/scissors each turn. Are you ready?')
     opp1=random.random()
     m1=input('Enter your first move: ')
@@ -391,21 +417,31 @@ def level3_kiera():
         print('You lost all three matches but Kiera had fun')
         print('"Alice used to lose against me all the time too!! ", she says with a soft painful giggle.')
     print('After the small game you notice Kiera has calmed down and she starts to talk about Alice')
+    time.sleep(1*var)
     print('She is determined to help you solve the case.')
     print('You find out that there was a slight change in the behaviour of cheerful Alice the past week or so')
+    time.sleep(1*var)
     print('Alice seemed worried and tensed about her father’s NGO activities and Mrs.Argots involvement in them')
+    time.sleep(1*var)
     print('Kiera also reveals that Mrs. Argot was actually Alices stepmother and they were never on good terms. This seems like a very valuable clue.')
     move_on(pa_l3)
 
 def level4_kiera():
     pa_l4=3
+    time.sleep(var*3)
+    op=input("Do you want to continue investigating this case?(Y/N)\n")
+    op=op.lower()
+    if op!='y' and op!='yes':
+        end_game()
     print('\n\n')
-    print(format("LEVEL ",'^100'))
+    print(format("LEVEL 4",'^100'))
     print('\n')
     print("You finish talking with and Kiera and you are alerted about the forensic reports on Alice's body")
+    time.sleep(1*var)
     print("Answer these questions to infer useful data from the forensics")
     time.sleep(1)
     print("Which of the injuries could have been caused by using the baseball bat?")
+    time.sleep(1*var)
     print("a)Stab wound in the abdomen","b)Entry wound on the arm",'c)Contusion and fracture of head','d)Incised wound on the thigh',sep='\n')
     ans=input('Enter the correct option (a/b/c/d): ')
     ans=ans.lower()
@@ -415,6 +451,7 @@ def level4_kiera():
     else:
         print('Correct Answer!!')
     print("What part of the body do investigators commonly swab to get a DNA sample?")
+    time.sleep(1*var)
     print('a)The cheek','b)The scalp','c)The inner ear','d)The wrist',sep='\n')
     ans=input('Enter the correct option (a/b/c/d): ')
     ans=ans.lower()
@@ -424,6 +461,7 @@ def level4_kiera():
     else:
         print('Correct Answer!!')
     print('When a suspect is not available in person, what might be tested for DNA instead?')
+    time.sleep(1*var)
     print('a)Their pen or pencil','b)The milk carton in the fridge','c)A household surface','d)Their toothbrush',sep='\n')
     ans=input('Enter the correct option (a/b/c/d): ')
     ans=ans.lower()
@@ -433,6 +471,7 @@ def level4_kiera():
     else:
         print('Correct Answer!!')
     print('A test result that is not certain enough to be useful to an investigation is called _______.')
+    time.sleep(1*var)
     print('a)Unfortunate','b)Valid','c)Invalid','d)Inconclusive',sep='\n')
     ans=input('Enter the correct option (a/b/c/d): ')
     ans=ans.lower()
@@ -462,6 +501,11 @@ def level4_kiera():
 #Level 5
 def level5():
     pa_l5=2
+    time.sleep(var*3)
+    op=input("Do you want to continue investigating this case?(Y/N)\n")
+    op=op.lower()
+    if op!='y' and op!='yes':
+        end_game()
     print('\n\n')
     print(format("LEVEL 5",'^100'))
     print('\n')
@@ -500,7 +544,7 @@ def level5():
     time.sleep(var*1)
     print("Everyone's a suspect when Detective Hercule Poirot arrives to interrogate all passengers and search for clues before the killer can strike again.")
     time.sleep(var*2)
-    ans=input("Enter the word to the right of the word which consists the letters 'v' and 't': ")
+    ans=input("Find the word which is a synonym for investigator and enter the word to its right ")
     print('')
     ans=ans.lower()
     if(ans!='hercule'):
@@ -514,7 +558,7 @@ def level5():
     time.sleep(var*1)
     print("The victim, a doctor, is found suffocated in bed. His wrists are bound and his eyes bulging through a clear plastic bag")
     time.sleep(var*1)
-    print("A few days later, another victim is foung dead, in exactly the same curcumstances.")
+    print("A few days later, another victim is found dead, in exactly the same circumstances.")
     time.sleep(var*1)
     print("As Erika and her team start digging deeper, they discover a calculated serial killer- stalking their victims before striking")
     time.sleep(var*1)
@@ -533,7 +577,7 @@ def level5():
     move_on(pa_l5)
     print("The mayor trusts you and realises theres no reason to hold back important information from you")
     time.sleep(var*1)
-    print('"Mrs Argot left the part at 11:00 stating she had to bring some papers" he said sinisterly')
+    print('"Mrs Argot left the party at 11:00 stating she had to bring some papers" he said sinisterly')
     time.sleep(var*1)
     print('"She had returned with a change in clothes which I felt was weird" he said and he definitely sounded like he was onto something')
     time.sleep(var*1)
@@ -564,16 +608,21 @@ def level6_puz():
     if pa_l6==0:
         print('You couldnt help your team with this task... hope you do better next time')
     print("Your team is able to discover that there was a 10 million error in Mr Alan Argot's bank account!!")
-    print("The money seemed to have been tranfereed to a 'Capyper Island' to escape from the hands of the law")
+    print("The money seemed to have been tranfereed to a 'Cayman Island' to escape from the hands of the law")
     print("This error seemed to fit with the papers the mayor had slipped out of Mrs Argot's hands but it is too soon to conclude")
     print("This placed major suspicion on Mrs.Janice Argot and you set out to arrest her")
 
 #Level 6
 def level6():
+    time.sleep(var*3)
+    op=input("Do you want to continue investigating this case?(Y/N)\n")
+    op=op.lower()
+    if op!='y' and op!='yes':
+        end_game()
     print('\n\n')
     print(format("LEVEL 6",'^100'))
     print('\n')
-    print('There seems to be a surprising discovery around the corener!!!')
+    print('There seems to be a surprising discovery around the corner!!!')
     level6_puz()
 
 #Timed input
@@ -591,7 +640,7 @@ def level7_puz():
     pa_l7=1
     print("You need to reach befor Janice to arrest her. She has a headstart!!")
     print("Time to speed up based on if you are fast enough")
-    time.sleep(3)
+    time.sleep(7)
     for i in range(3):
         print("Enter the following character within 2 seconds")
         time.sleep(2)
@@ -613,13 +662,23 @@ def level7_puz():
     move_on(pa_l7)
     if pa_l7:
         print("You couldnt be of help to your team")
+    time.sleep(1*var)
     print('You are able to reach before time and catch up to Mrs.Argot!!')
+    time.sleep(1*var)
     print("Janice confesses about the murder and explained that she was motivated by jealousy and had married Mr Alan only for his wealth.")
+    time.sleep(2*var)
     print("Meanwhile, the money transfers are tracked and another crime of Janice comes to surface.")
+    time.sleep(1*var)
     print("Turns out the mayor's hunch was right as the one on the receiving end of the 10 million was none other than Janice’s ex-husband.")
+    time.sleep(2*var)
 
 #Level 7
 def level7():
+    time.sleep(var*3)
+    op=input("Do you want to continue investigating this case?(Y/N)\n")
+    op=op.lower()
+    if op!='y' and op!='yes':
+        end_game()
     print('\n\n')
     print(format("LEVEL 7",'^100'))
     print('\n')
@@ -643,7 +702,7 @@ def main_game():
     h=t//3600
     m=(t%3600)//60
     s=t%60
-    print("Congratulations! You beat the game in {} hours {} minutes and {} seconds!".format(h,m,s))
+    print("\n\nCongratulations! You beat the game in {} hours {} minutes and {} seconds!".format(h,m,s))
 
     
 main_game()
